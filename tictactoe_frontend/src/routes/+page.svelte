@@ -55,14 +55,14 @@
       board={current?.squares ?? Array(9).fill(null)}
       winningLine={winnerInfo?.line ?? []}
       disabled={isOver}
-      onplay={(e) => game.play(e.detail.index)}
+      on:play={(e) => game.play(e.detail.index)}
     />
 
     <div class="actions">
       <button
         class="reset"
         type="button"
-        onclick={onReset}
+        on:click={onReset}
         aria-label="Reset game"
       >
         Reset
@@ -81,7 +81,7 @@
           <button
             type="button"
             class:selected={i === state?.step}
-            onclick={() => jumpTo(i)}
+            on:click={() => jumpTo(i)}
             aria-current={i === state?.step ? 'step' : undefined}
             aria-label={`Go to move ${i}`}
           >
