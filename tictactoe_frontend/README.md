@@ -1,38 +1,46 @@
-# sv
+# Modern Tic‑Tac‑Toe (Svelte)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A modern, accessible, two‑player Tic‑Tac‑Toe built with Svelte and SvelteKit. Features:
+- Ocean Professional theme (primary #2563EB, secondary/success #F59E0B, error #EF4444, bg #f9fafb, surface #ffffff, text #111827)
+- Centered 3x3 grid with rounded corners, subtle shadows, and smooth transitions
+- Live status: current player, winner, or draw
+- Winning line highlight and move blocking after game end
+- Reset button
+- Move history with time‑travel to any step
+- Responsive and keyboard accessible (Enter/Space to play, focus ring)
+- LocalStorage persistence of last game
 
-## Creating a project
+## Getting Started
 
-If you're seeing this, you've probably already done this step. Congrats!
-
+Install dependencies:
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+Run the app (port 3000, strict):
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
-
+Build for production:
 ```bash
 npm run build
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
+## Keyboard Accessibility
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Use Tab/Shift+Tab to focus cells.
+- Press Enter or Space to place a mark.
+- Cells are disabled once occupied or when the game is over.
+
+## Project Structure
+
+- src/routes/+page.svelte: App shell, status, reset, and history.
+- src/lib/Board.svelte: 3x3 grid and input handling.
+- src/lib/Square.svelte: Single cell with visuals and ARIA.
+- src/lib/stores/game.ts: Game state, history, winner/draw detection, persistence.
+- src/lib/types.ts: Type definitions.
+- src/app.css: Global theme and base styles.
+
+No backend or external services are required.
